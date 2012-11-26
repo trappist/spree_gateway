@@ -78,7 +78,7 @@ module Spree
     end
 
     def payment_profiles_supported?
-      true
+      false
     end
 
     def purchase(money, creditcard, options = {})
