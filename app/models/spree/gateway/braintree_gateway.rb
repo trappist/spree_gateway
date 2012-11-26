@@ -14,8 +14,8 @@ module Spree
 
     def authorize(money, creditcard, options = {})
       adjust_options_for_braintree(creditcard, options)
-      payment_method = creditcard.gateway_customer_profile_id || creditcard
-      provider.authorize(money, payment_method, options)
+      #payment_method = creditcard.gateway_customer_profile_id || creditcard
+      provider.authorize(money, creditcard, options)
     end
 
     def capture(authorization, ignored_creditcard, ignored_options)
@@ -78,7 +78,8 @@ module Spree
     end
 
     def payment_profiles_supported?
-      true
+      false
+      #true
     end
 
     def purchase(money, creditcard, options = {})
